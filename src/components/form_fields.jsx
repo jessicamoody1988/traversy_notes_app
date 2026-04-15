@@ -20,6 +20,7 @@ export function TextInput({ id, label, value, onChange }) {
     >
       <input
         id={id}
+        name={id}
         type="text"
         className="w-full p-2 border rounded-lg"
         value={value}
@@ -37,6 +38,7 @@ export function TextareaInput({ id, label, value, onChange, rows = "5" }) {
     >
       <textarea
         id={id}
+        name={id}
         type="text"
         className="w-full p-2 border rounded-lg"
         value={value}
@@ -55,6 +57,7 @@ export function SelectInput({ id, label, value, onChange, options }) {
     >
       <select
         id={id}
+        name={id}
         className="w-full p-2 border rounded-lg"
         value={value}
         onChange={(e) => onChange(e.target.value ?? "")}

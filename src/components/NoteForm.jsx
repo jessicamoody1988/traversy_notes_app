@@ -16,11 +16,16 @@ const CATEGORIES = {
 };
 
 export default function NoteForm() {
-  const [title, setTitle] = useState("");
-  const [priority, setPriority] = useState(PRIORITIES.MEDIUM);
-  const [category, setCategory] = useState(CATEGORIES.WORK);
-  const [description, setDescription] = useState("");
+  const [formData, setFormData] = useState({
+    title: "",
+    priority: PRIORITIES.MEDIUM,
+    category: CATEGORIES.WORK,
+    description: "",
+  });
+
   const [loading, setLoading] = useState(false);
+
+  const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const addNote = () => null;
 
@@ -32,28 +37,28 @@ export default function NoteForm() {
       <TextInput
         id="title"
         label="Title"
-        value={title}
-        onChange={setTitle}
+        value={formData.title}
+        onChange={onChange}
       />
       <SelectInput
         id="priority"
         label="Priority"
-        value={priority}
-        onChange={setPriority}
+        value={formData.priority}
+        onChange={onChange}
         options={Object.values(PRIORITIES)}
       />
       <SelectInput
         id="category"
         label="Category"
-        value={category}
-        onChange={setCategory}
+        value={formData.category}
+        onChange={onChange}
         options={Object.values(CATEGORIES)}
       />
       <TextareaInput
         id="description"
         label="Description"
-        value={description}
-        onChange={setDescription}
+        value={formData.description}
+        onChange={onChange}
       />
       <SubmitButton
         label="Add Note"

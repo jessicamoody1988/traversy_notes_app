@@ -1,3 +1,5 @@
+import NoteForm from "./components/NoteForm";
+
 import { NotepadText } from "lucide-react";
 
 export default function App() {
@@ -7,6 +9,8 @@ export default function App() {
         <NotepadText />
         <h2>Notes App</h2>
       </div>
+
+      <NoteForm />
     </div>
   );
 }
